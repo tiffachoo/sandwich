@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import styles from '../styles/topbar.module.css'
+import styles from '../styles/components/topbar.module.css'
 
 interface Topbar {
 	className: string;

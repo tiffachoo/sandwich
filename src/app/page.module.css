@@ -2,7 +2,7 @@
 	position: relative;
 	display: grid;
 	gap: 2rem;
-	grid-template-columns: 16rem 1fr 16rem;
+	grid-template-columns: 1fr 42rem 1fr;
 	grid-template-rows: auto 1fr;
 	height: 100vh;
 }
@@ -18,16 +18,55 @@
 
 .aside {
 	position: relative;
-	z-index: 11;
 	display: grid;
 	grid-template-columns: subgrid;
 	grid-column: 3;
 	grid-row: 1 / span 2;
-	min-width: 16rem;
 	padding: 2rem;
 	background-color: var(--color-secondary);
 }
 
+.recipeGrid {
+	display: grid;
+	gap: 2rem;
+	margin-top: 2rem;
+}
+
 .content {
 	grid-column: 2;
+	padding: 0 1rem 3rem;
+}
+
+.listColumns {
+	display: grid;
+	grid-template-columns: 1fr auto;
+}
+
+.listColumns:not(:last-child) {
+	margin-bottom: 0.5rem;
+}
+
+
+@media (min-width: 767px) {
+	.aside {
+		z-index: 21;
+		max-width: 16rem;
+	}
+
+	.recipeGrid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 768px) {
+	.main {
+		grid-template-columns: 1fr;
+	}
+
+	.topbar,
+	.aside,
+	.content {
+		grid-column: auto;
+		grid-row: auto;
+	}
 }

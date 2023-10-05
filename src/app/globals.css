@@ -80,7 +80,7 @@ body {
 
 body::after {
 	content: '';
-	position: absolute;
+	position: fixed;
 	z-index: 99;
 	inset: 1rem;
 	border: 1px solid var(--color-text);
@@ -93,6 +93,24 @@ h1,
 	font-weight: 400;
 }
 
+h2,
+.h2 {
+	color: var(--color-primary);
+	font-size: 1.5rem;
+}
+
 .text-right {
 	text-align: right;
+}
+
+.font-italic {
+	font-style: italic;
+}
+
+.spacer-t {
+	margin-top: 2rem !important;
+}
+
+.spacer-b {
+	margin-bottom: 2rem !important;
 }
