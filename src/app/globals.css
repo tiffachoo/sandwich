@@ -93,6 +93,21 @@ h1,
 	font-weight: 400;
 }
 
+.h1-ja {
+	font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+	h1,
+	.h1 {
+		font-size: 1.5rem;
+	}
+
+	.h1-ja {
+		font-size: 1rem;
+	}
+}
+
 h2,
 .h2 {
 	color: var(--color-primary);
@@ -101,6 +116,10 @@ h2,
 
 .text-right {
 	text-align: right;
+}
+
+.text-nowrap {
+	white-space: nowrap;
 }
 
 .font-italic {

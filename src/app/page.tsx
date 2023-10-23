@@ -1,9 +1,14 @@
+'use client';
+
+import { useState } from 'react';
 import styles from './page.module.css'
 import RecipeCard from '@/components/recipe-card'
 import Select from '@/components/select'
 import Topbar from '@/components/topbar'
 
 export default function Home() {
+	const [type, setType] = useState('');
+
 	const powerUps = [
 		{
 			name: 'Sparkling Power',
@@ -16,6 +21,17 @@ export default function Home() {
 		{
 			name: 'Encounter Power',
 			level: 3
+		}
+	];
+
+	const typesTest = [
+		{
+			id: 1,
+			label: 'Normal'
+		},
+		{
+			id: 2,
+			label: 'Fire'
 		}
 	];
 
@@ -35,7 +51,7 @@ export default function Home() {
 			title: 'Sour Herba Mystica',
 			amount: 1
 		}
-	]
+	];
 
 	const powerUpsEl = powerUps.map(power => {
 		return <div 
@@ -53,6 +69,31 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
+			<Topbar className={styles.topbar} />
+			<aside className={styles.aside}>
+				<div className={styles.asideWrap}>
+					<Select
+						id="typeSelect"
+						className="spacer-b"
+						defaultLabel="All types"
+						label="Pokemon type"
+						options={typesTest}
+						onChange={(e) => setType(e)}
+					/>
+					<dl>
+						{powerUpsEl}
+					</dl>
+				</div>
+			</aside>
+			<section className={styles.content}>
+				<ul className={styles.recipeGrid}>
+					<RecipeCard
+						ingredients={recipeTest}
+						title="Poison"
+					/>
+				</ul>
+			</section>
+
 			<svg width="13" height="13" viewBox="0 0 13 13">
 				<defs>
 					<pattern
@@ -80,29 +121,6 @@ export default function Home() {
 					</pattern>
 				</defs>
 			</svg>
-			<Topbar className={styles.topbar} />
-			<aside className={styles.aside}>
-				<div className={styles.asideWrap}>
-					<Select
-						id="typeSelect"
-						className="spacer-b"
-						defaultLabel="All types"
-						label="Pokemon type"
-						options={[]}
-					/>
-					<dl>
-						{powerUpsEl}
-					</dl>
-				</div>
-			</aside>
-			<section className={styles.content}>
-				<ul className={styles.recipeGrid}>
-					<RecipeCard
-						ingredients={recipeTest}
-						title="Poison"
-					/>
-				</ul>
-			</section>
     </main>
   )
 }

@@ -1,29 +1,27 @@
 import styles from '../styles/components/select.module.css';
 
 interface Select {
-	className: string;
+	className?: string;
 	defaultLabel?: string; 
 	id: string;
 	label: string;
 	options: {
 		id: string | number;
 		label: string;
-	}[]
+	}[];
+	onChange: (e: string) => void;
 }
 
-export default function Select({ className, defaultLabel = 'Select', id = 'select', label, options }: Select) {
-	const optionsTest = [
-		{
-			id: 1,
-			label: 'Normal'
-		},
-		{
-			id: 2,
-			label: 'Fire'
-		}
-	];
+export default function Select({ 
+	className,
+	defaultLabel = 'Select',
+	id = 'select',
+	label,
+	options,
+	onChange
+}: Select) {
 
-	const optionsEl = optionsTest.map(option => {
+	const optionsEl = options?.map(option => {
 		return <option
 			key={option.id}
 			value={option.id}
@@ -41,6 +39,7 @@ export default function Select({ className, defaultLabel = 'Select', id = 'selec
 			<select
 				id={id}
 				className={styles.selectControl}
+				onChange={e => onChange(e.target.value)}
 			>
 				<option value="select">
 					{defaultLabel}
