@@ -1,0 +1,9 @@
+{
+  "$id": "schemas/type",
+  "type": "object",
+  "properties": {
+    "id": { "type": "number" },
+    "name": { "type": "string" }
+  },
+  "required": ["id", "name"]
+}

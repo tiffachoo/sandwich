@@ -1,0 +1,10 @@
+{
+  "$id": "schemas/ingredient",
+  "type": "object",
+  "properties": {
+    "id": { "type": "number" },
+    "name": { "type": "string" },
+    "exceptions": { "type": "array" }
+  },
+  "required": ["id", "name"]
+}

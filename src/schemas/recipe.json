@@ -1,0 +1,15 @@
+{
+  "$id": "schemas/recipe",
+  "type": "object",
+  "properties": {
+    "id": { "type": "number" },
+    "type": { "$ref": "schemas/type" },
+    "ingredients": {
+      "type": "array",
+      "items": {
+        "$ref": "schemas/ingredient"
+      }
+    }
+  },
+  "required": ["id", "type"]
+}
